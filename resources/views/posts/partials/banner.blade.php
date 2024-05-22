@@ -1,6 +1,8 @@
 <section class="pt-7 pb-5">
   <div class="container">
     <div class="row text-center">
+
+      @foreach ($services as $service)
       <div class="col-lg-3 col-md-6">
         <div class="info">
           <div class="icon icon-shape text-center">
@@ -26,11 +28,19 @@
               </g>
             </svg>
           </div>
-          <h5 class="mt-2">Good Location</h5>
-          <p>We get insulted by others, lose trust for those We get back.</p>
+          <h5 class="mt-2">{{ $service->title }}</h5>
+          <p>{{ $service->body }}</p> 
+          @auth
+          @if(auth()->user()->hasRole('Admin'))
+          <a href="{{ route('admin.home.services.edit', $service) }}" class="btn bg-success btn-rounded me-2">Editar Membership</a>
+          @endif
+          @endauth
         </div>
       </div>
-      <div class="col-lg-3 col-md-6">
+      @endforeach
+
+      
+   {{--    <div class="col-lg-3 col-md-6">
         <div class="info">
           <div class="icon icon-shape text-center">
             <svg class="text-primary" width="25px" height="25px" viewBox="0 0 46 42" version="1.1"
@@ -59,6 +69,8 @@
           <p>We get insulted by others, lose trust for those We get back.</p>
         </div>
       </div>
+
+
       <div class="col-lg-3 col-md-6">
         <div class="info">
           <div class="icon icon-shape text-center">
@@ -91,6 +103,7 @@
           <p>We get insulted by others, lose trust for those We get back.</p>
         </div>
       </div>
+
       <div class="col-lg-3 col-md-6">
         <div class="info">
           <div class="icon icon-shape text-center">
@@ -117,7 +130,9 @@
           <h5 class="mt-2">Performance Benefits</h5>
           <p>We get insulted by others, lose trust for those We get back.</p>
         </div>
-      </div>
+      </div> --}}
+
+
     </div>
   </div>
 </section>

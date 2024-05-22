@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ConfiguracionController;
 use App\Http\Controllers\admin\ImagesController;
+use App\Http\Controllers\AllHomeContentController;
 use App\Http\Controllers\CalculatorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -45,11 +46,12 @@ Route::get('category', [CategoryHomeController::class, 'index'])->name('home.cat
 
 Route::get('category/{category}', [CategoryHomeController::class, 'show'])->name('home.category.show');
 
+Route::get('/', [AllHomeContentController::class, 'all_bd_index'])->name('posts.index');
 
 /* HOME post */
-
-Route::get('/', [PostController::class, 'index'])->name('posts.index')/* ->middleware('log.device.info', CacheMiddleware::class.':300') */;
-
+/* ->middleware('log.device.info', CacheMiddleware::class.':300') 
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
+*/
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 /* Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');

@@ -37,7 +37,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/admin') }}">
               <i class="fas fa-newspaper"></i> 
-             
+             Admin
             </a>
           </li>
         @endcan

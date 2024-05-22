@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PostSeeder::class);
         $this->call(PostYoutubeSeeder::class);
-        $this->call(videoSeeder::class);
+    /*     $this->call(videoSeeder::class); */
         $this->call(ConfiguracionSeed::class);
     }
 }

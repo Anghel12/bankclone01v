@@ -24,19 +24,19 @@ use App\Http\Controllers\Admin\ImpersonateController;
 use App\Http\Controllers\Admin\MensajesController;
 use App\Http\Controllers\admin\NavbarConfigController;
 use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\admin\orderController;
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\PaymentMethodsController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\PostYoutubeController;
-use App\Http\Controllers\admin\profileController;
+use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SaleController;
-use App\Http\Controllers\Admin\sliderController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\subCategoryController;
 use App\Http\Controllers\Admin\ReferralController;
 use App\Http\Controllers\Admin\ReportController;
@@ -60,6 +60,21 @@ use App\Http\Controllers\Admin\WalletController;
 use Chatify\ChatifyMessenger;
 use App\Http\Controllers\HomeHelpController;
 use App\Http\Controllers\Admin\AboutUsHomeController;
+use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\Home\AboutController;
+use App\Http\Controllers\Admin\Home\MembershipController;
+use App\Http\Controllers\Admin\Home\PackageController;
+use App\Http\Controllers\Admin\Home\ServiceController;
+
+/* home config */
+Route::resource('content', ContentController::class)->names('admin.content');
+Route::resource('services', ServiceController::class)->names('admin.home.services');
+Route::resource('packages', PackageController::class)->names('admin.home.packages');
+Route::resource('about', AboutController::class)->names('admin.home.abouts');
+Route::resource('memberships', MembershipController::class)->names('admin.home.memberships');
+
+Route::resource('subscription', MembershipController::class)->names('admin.home.subscription');
+/* home cnfig */
 
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['can:admin.home'
@@ -127,7 +142,7 @@ Route::resource('brands', BrandController::class)->names('admin.brands');
 Route::resource('dashboards', DashboardController::class)->names('admin.dashboards');
  
 /* perfil del usuario */
-Route::resource('profile', profileController::class)->names('admin.profile');
+Route::resource('profile', ProfileController::class)->names('admin.profile');
  
 Route::get('/admin/profile/{user}', [ProfileController::class, 'show'])->name('admin.profile.show');
 
@@ -144,7 +159,7 @@ Route::get('MercadoPago/pending', [MercadoPagoController::class, 'pending'])->na
 /* configuracion de la vista home crud */
 
 Route::resource('navbars', NavbarConfigController::class)->names('admin.navbars');
-Route::resource('sliders', sliderController::class)->names('admin.sliders');
+Route::resource('sliders', SliderController::class)->names('admin.sliders');
 Route::resource('footers', FooterController::class)->names('admin.footers');
 /* ICONOES  */
 Route::get('/icons', [IconController::class, 'index'])->name('admin.icons.index');

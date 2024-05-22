@@ -2,9 +2,14 @@
   <section class="py-lg-7">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 mx-auto text-center mb-5">
-          <h2>Best no-tricks pricing</h2>
-          <p class="lead">If you're not satisfied, contact us within the first 30 days and we'll send you a full refund.
+        <div class="col-md-6 mx-auto text-center mb-5">   
+          @auth
+          @if(auth()->user()->hasRole('Admin'))
+          <a href="{{ route('admin.home.memberships.edit', $membership) }}" class="btn bg-success btn-rounded me-2">Editar Membership</a>
+          @endif
+          @endauth
+          <h2>{{ $membership->title }}</h2>
+          <p class="lead">{{ $membership->body }}
           </p>
         </div>
       </div>
@@ -13,9 +18,8 @@
           <div class="row">
             <div class="col-lg-8">
               <div class="card-body">
-                <h3 class="text-gradient text-info">Lifetime Membership</h3>
-                <p>You have Free Unlimited Updates and Premium Support on each package. You also have 30 days to request
-                  a refund.</p>
+                <h3 class="text-gradient text-info">{{ $membership->subtitle }}</h3>
+                <p>{{ $membership->sub_body }}</p>
                 <div class="row mt-5 mb-2">
                   <div class="col-lg-3 col-12">
                     <h6 class="text-dark tet-uppercase">What's included</h6>
@@ -66,14 +70,16 @@
             </div>
             <div class="col-lg-4 my-auto">
               <div class="card-body text-center">
-                <h6 class="mt-sm-4 mt-0 mb-0">Pay once, own it forever</h6>
+                <h6 class="mt-sm-4 mt-0 mb-0">{{ $membership->price_title }}</h6>
                 <h1 class="mt-0">
-                  <small>$</small>399
+                  <small>$</small>{{ $membership->price }}
                 </h1>
-                <button type="button" class="btn bg-gradient-info btn-lg mt-2">Get Access</button>
-                <p class="text-sm">Get a free sample (20MB)</p>
+                <a  href="{{ route('login') }}" class="btn bg-gradient-info btn-lg mt-2">Registrarse</a>
+                <p class="text-sm">{{ $membership->offer }}</p>
+                
               </div>
             </div>
+            
           </div>
         </div>
       </div>

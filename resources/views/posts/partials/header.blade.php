@@ -5,9 +5,23 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center mx-auto mt-n7">
 
-            @forelse($sliders as $slider)
-            @if($slider->image->url)
-            <img src="{{ asset(Storage::url($slider->image->url)) }}" alt="Slider Image" class="w-screen h-70vh object-cover position-relative">
+
+            @if($content)
+
+            <h4 class="text-gradient text-primary fadeIn1 fadeInBottom">{{$content->title}}</h4>
+            <h1 class="text-white fadeIn2 fadeInBottom">{{$content->subtitle}}</h1>
+            <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-5">{{$content->body}}</p>
+            <button type="submit" class="btn bg-white btn-rounded me-2 fadeIn1 fadeInBottom">Registrarse ahora</button>
+            <button type="submit" class="btn bg-white btn-icon-only rounded-circle fadeIn1 fadeInBottom"><i class="fas fa-play"></i></button>
+    
+            @auth
+            @if(auth()->user()->hasRole('Admin'))
+            <a href="{{ route('admin.content.edit', $content) }}" class="btn bg-success btn-rounded me-2 fadeIn1 fadeInBottom">Editar</a>
+        @endif
+            @endauth
+        
+           
+
             @else
             <h4 class="text-gradient text-primary fadeIn1 fadeInBottom">BIENVENIDOS A TERRA BANK UNIVERSAL </h4>
             <h1 class="text-white fadeIn2 fadeInBottom">Primer fondo de alta rentabilidad.</h1>
@@ -16,13 +30,8 @@
             <button type="submit" class="btn bg-white btn-icon-only rounded-circle fadeIn1 fadeInBottom"><i class="fas fa-play"></i></button>
             @endif
 
-            @empty
-                      <h4 class="text-gradient text-primary fadeIn1 fadeInBottom">BIENVENIDOS A TERRA BANK UNIVERSAL </h4>
-            <h1 class="text-white fadeIn2 fadeInBottom">Primer fondo de alta rentabilidad.</h1>
-            <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-5">nuestro territoria es este Planeta tierra en su conjunto..y todos los habitantes sean Beneficiados a gran manera</p>
-            <button type="submit" class="btn bg-white btn-rounded me-2 fadeIn1 fadeInBottom">Registrarse ahora</button>
-            <button type="submit" class="btn bg-white btn-icon-only rounded-circle fadeIn1 fadeInBottom"><i class="fas fa-play"></i></button>
-            @endforelse
+
+
           </div>
         </div>
       </div>

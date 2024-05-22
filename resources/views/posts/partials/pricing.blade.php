@@ -6,16 +6,27 @@
     <div class="container pb-lg-9 pb-7 pt-7 postion-relative z-index-2">
       <div class="row">
         <div class="col-md-8 mx-auto text-center">
-          <span class="badge bg-gradient-info mb-2">Pricing</span>
-          <h3 class="text-white">See our pricing</h3>
-          <p class="text-white">You have Free Unlimited Updates and Premium Support on each package.</p>
+          <span class="badge bg-gradient-info mb-2">{{ $package->title }}</span>
+          <h3 class="text-white">{{ $package->subtitle }}</h3>
+          <p class="text-white">{{ $package->body }}</p>
+
+          
+          @auth
+          @if(auth()->user()->hasRole('Admin'))
+          <a href="{{ route('admin.home.packages.edit', $content) }}" class="btn bg-success btn-rounded me-2">Editar</a>
+          @endif
+          @endauth
         </div>
       </div>
     </div>
   </div>
+
   <div class="mt-sm-n8 mt-n7">
     <div class="container">
       <div class="row">
+
+
+        
         <div class="col-lg-3 mb-lg-auto mb-4 my-auto p-md-0 ms-auto">
           <div class="card border-radius-top-end-lg-0 border-radius-bottom-end-lg-0">
             <div class="card-header text-center pt-4 pb-3">
@@ -65,6 +76,9 @@
             </div>
           </div>
         </div>
+
+
+
         <div class="col-lg-3 p-md-0 mb-lg-auto mb-4 z-index-2">
           <div class="card">
             <div class="card-header text-center pt-4 pb-3">
@@ -123,6 +137,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="col-lg-3 mb-lg-auto mb-4 my-auto p-md-0 me-auto">
           <div class="card border-radius-top-start-lg-0 border-radius-bottom-start-lg-0">
             <div class="card-header text-center pt-4 pb-2">
@@ -171,6 +187,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>

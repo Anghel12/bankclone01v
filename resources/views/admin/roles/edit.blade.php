@@ -13,7 +13,7 @@
 </div>
 @endif
 
-<div class="card">
+<div class="card-minimalista">
     <div class="card-body">
         <p class="h5"> Nombre:</p>
 

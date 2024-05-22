@@ -15,10 +15,11 @@ use App\Models\Slider;
 use Illuminate\Support\Facades\Cache;
 /* vistas del post*/
 use App\Http\Livewire\ContadorVistas;
+use App\Models\Content;
 use App\Models\HomeBaner;
 use App\Models\Image;
 use App\Models\Review;
-
+ 
 class PostController extends Controller
 {
 
@@ -39,7 +40,7 @@ class PostController extends Controller
             $posts = Post::where('status', 2)->latest('id')->take(20)->get();
             cache::put($key, $posts);
         }
-
+       
         $postyoutubes = PostYoutube::all();
         $tags = Tag::all();
         $sliders = Slider::all();

@@ -10,9 +10,9 @@
 
   @include('posts.partials.pricing')
 
-  @include('posts.partials.faq')
+  @include('posts.partials.about')
 
-  @include('posts.partials.servicios')
+  @include('posts.partials.membership')
  
   @include('posts.partials.form_contact')
 

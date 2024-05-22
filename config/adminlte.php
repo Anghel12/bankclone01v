@@ -505,6 +505,46 @@ return [
             'icon_color' => 'info',
             'can'        => 'admin.adminTitulo.index',
             'submenu' => [
+
+                [
+                    'text'        => 'Banner',
+                    'route'         => 'admin.content.index',
+                    'icon'        => 'fas fa-cogs fa-fw',
+                    'icon_color' => 'gray',
+                    'label_color' => 'success',
+                ],
+
+                [
+                    'text'        => 'Services',
+                    'route'         => 'admin.home.services.index',
+                    'icon'        => 'fas fa-cogs fa-fw',
+                    'icon_color' => 'gray',
+                    'label_color' => 'success',
+                ],
+
+                [
+                    'text'        => 'Packages',
+                    'route'         => 'admin.home.packages.index',
+                    'icon'        => 'fas fa-cogs fa-fw',
+                    'icon_color' => 'gray',
+                    'label_color' => 'success',
+                ],
+
+                [
+                    'text'        => 'About',
+                    'route'         => 'admin.home.abouts.index',
+                    'icon'        => 'fas fa-cogs fa-fw',
+                    'icon_color' => 'gray',
+                    'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Memberships',
+                    'route'         => 'admin.home.memberships.index',
+                    'icon'        => 'fas fa-cogs fa-fw',
+                    'icon_color' => 'gray',
+                    'label_color' => 'success',
+                ],
+                
                 [
                     'text' => 'NavBar',
                     'route'         => 'admin.navbars.index',
@@ -832,7 +872,7 @@ return [
             'text'       => 'Order tracking',
             'icon_color' => 'red',
             'icon'        => 'fas fa-shopping-cart',
-            'route'      => 'admin.profile.index',
+            'route'      => 'admin.sales.index',
            
         ],
 
