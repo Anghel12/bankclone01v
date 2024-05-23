@@ -21,9 +21,7 @@ class ContentsTableSeeder extends Seeder
             'title' => 'BIENVENIDOS A TERRA BANK UNIVERSAL',
             'subtitle' => 'Primer fondo de alta rentabilidad.',
             'body' => 'Nuestro territorio es este Planeta Tierra en su conjunto, y todos los habitantes serán beneficiados de gran manera.',
-            'created_at' => now(),
-            'updated_at' => now(),
-           
+ 
         ]);
 
 

@@ -24,8 +24,7 @@ class MembershipTableSeeder extends Seeder
             'price_title' => 'Precio mensual', // Agregado el título del precio
             'price' => 29.99, // Agregado el precio
             'offer' => 'Oferta especial para nuevos miembros', // Agregada la oferta
-            'created_at' => now(),
-            'updated_at' => now(),
+
            
         ]);
 

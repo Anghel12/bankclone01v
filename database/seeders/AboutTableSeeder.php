@@ -21,8 +21,6 @@ class AboutTableSeeder extends Seeder
             'subtitle' => 'Our Story',
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.',
             'miembro' => 100000,
-            'created_at' => now(),
-            'updated_at' => now(),
            
         ]);
     }

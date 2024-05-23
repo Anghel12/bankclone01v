@@ -19,8 +19,7 @@ class PackageTableSeeder extends Seeder
             'title' => 'Paquete de ejemplo',
             'subtitle' => 'Subtítulo del paquete de ejemplo',
             'body' => 'Este es el cuerpo del paquete de ejemplo.',
-            'created_at' => now(),
-            'updated_at' => now(),
+
            
         ]);
 
