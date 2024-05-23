@@ -15,7 +15,7 @@ class AllHomeContentController extends Controller
 {
     public function all_bd_index()
     {
-        $subscription = Subscription::first();
+     /*    $subscription = Subscription::first(); */
         $membership = Membership::first();
         $about = About::first();
         $package = Package::first();

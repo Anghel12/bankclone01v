@@ -41,8 +41,6 @@ class profileController extends Controller
     return view('admin.profile.index', compact('profiles', 'user'));
 }
 
-    
-
     /**
      * Display the specified resource.
      *
