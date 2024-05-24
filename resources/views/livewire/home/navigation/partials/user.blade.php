@@ -35,7 +35,7 @@
 <!-- Authentication -->
         @can('admin.home')
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/admin') }}">
+            <a class="nav-link" href="{{ route('admin.profile.index') }}">
               <i class="fas fa-newspaper"></i> 
              Admin
             </a>

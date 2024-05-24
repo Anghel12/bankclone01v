@@ -13,7 +13,7 @@
           
           @auth
           @if(auth()->user()->hasRole('Admin'))
-          <a href="{{ route('admin.home.packages.edit', $content) }}" class="btn bg-success btn-rounded me-2">Editar</a>
+          <a href="{{ route('admin.home.packages.edit', $package) }}" class="btn bg-success btn-rounded me-2">Editar</a>
           @endif
           @endauth
         </div>

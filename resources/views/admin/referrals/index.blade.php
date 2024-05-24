@@ -1,86 +1,66 @@
-@extends('adminlte::page')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1>REFERIDOS OK</h1>
-@stop
-
-@section('content')
-
-
-<div class="card-minimalista p-2">
-    <div class="card-header">Referral Link</div>
-    <div class="card-body">
-        <p>Use the following link to refer new users:</p>
-        <input type="text" class="form-control" value="{{ $referralLink }}" readonly>
-    </div>
-</div>
-
-<div class="card-minimalista">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table id='myTable' class="table table-bordered ">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Usuario ID</th>
-                            <th>Código de referencia</th>
-                            <th>Usuario referido</th>
-                            <th>referrinf</th>
-                            <th>Puntos</th>
-                            <th>Estado</th>
-                            <th>Fecha de registro</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($referrals as $referral)
-                        <tr>
-                            <td>{{ $referral->id }}</td>
-                            <td>{{ $referral->user_id }}</td>
-                            <td>{{ $referral->referral_code }}</td>
-                            <td>{{ $referral->referredUser->id ?? null }}</td>
-                            <td>{{ $referral->referring_user_id ?? null }}</td>
-                            <td>{{ $referral->points }}</td>
-                            <td>{{ $referral->status }}</td>
-                            <td>{{ $referral->created_at->diffForHumans() }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                
+<x-guest-layout>
+    <div class="content">
+        <h2 class="mb-2 lh-sm">Codigo de Referido</h2>
+        <p class="text-700 lead mb-2">Get vector icons and social logos on your website with Font Awesome, the web's most popular icon set and toolkit.</p><a class="btn btn-link p-0" href="https://fontawesome.com/" target="_blank">Font Awesome Documentation<span class="ms-1" data-feather="chevron-right"></span></a>
+        <div class="mb-9">
+          <div class="card shadow-none border border-300 my-5" data-component-card="data-component-card">
+            <div class="card-header p-4 border-bottom border-300 bg-soft">
+              <div class="row g-3 justify-content-between align-items-end">
+                <div class="col-12 col-md">
+                  <h4 class="text-900 mb-0" data-anchor="data-anchor">Example</h4>
+                  <p class="mb-0 mt-2 text-800">You can use these icons with color and font-size helper classes like the example below:</p>
+                </div>
+                <div class="col col-md-auto">
+                  <nav class="nav nav-underline justify-content-end doc-tab-nav align-items-center" role="tablist"><a class="btn btn-sm btn-phoenix-primary code-btn ms-2" data-bs-toggle="collapse" href="font-awesome.html#example-code" role="button" aria-controls="example-code" aria-expanded="false"> <span class="me-2" data-feather="code"></span>View code</a><a class="btn btn-sm btn-phoenix-primary preview-btn ms-2"><span class="me-2" data-feather="eye"></span>Preview</a></nav>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="collapse code-collapse" id="example-code"><pre class="scrollbar" style="max-height:420px"><code class="language-html">&lt;span class=&quot;fas fa-bell text-danger fs-5&quot;&gt;&lt;/span&gt;</code></pre>
+              </div>
+              <div class="p-4 code-to-copy"><span class="fas fa-bell text-danger fs-5"></span></div>
+            </div>
+          </div>
+          <div class="card border border-300 mb-3">
+            <div class="card-body">
+              <div class="row list" id="icon-list">
+                <div class="col-lg-3 col-md-4 col-sm-6"><span class="icon-list-item d-none">far fa-address-book</span>
+                  <div class="border border-300 rounded-2 p-3 mb-4 text-center bg-white dark__bg-1000 shadow-sm"><span class="text-900 fs-3 far fa-address-book"></span><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="far fa-address-book" /></div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><span class="icon-list-item d-none">far fa-address-card</span>
+                  <div class="border border-300 rounded-2 p-3 mb-4 text-center bg-white dark__bg-1000 shadow-sm"><span class="text-900 fs-3 far fa-address-card"></span><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="far fa-address-card" /></div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><span class="icon-list-item d-none">far fa-angry</span>
+                  <div class="border border-300 rounded-2 p-3 mb-4 text-center bg-white dark__bg-1000 shadow-sm"><span class="text-900 fs-3 far fa-angry"></span><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="far fa-angry" /></div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><span class="icon-list-item d-none">far fa-arrow-alt-circle-down</span>
+                  <div class="border border-300 rounded-2 p-3 mb-4 text-center bg-white dark__bg-1000 shadow-sm"><span class="text-900 fs-3 far fa-arrow-alt-circle-down"></span><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="far fa-arrow-alt-circle-down" /></div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><span class="icon-list-item d-none">far fa-arrow-alt-circle-left</span>
+                  <div class="border border-300 rounded-2 p-3 mb-4 text-center bg-white dark__bg-1000 shadow-sm"><span class="text-900 fs-3 far fa-arrow-alt-circle-left"></span><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="far fa-arrow-alt-circle-left" /></div>
+                </div>
+     
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-
-@stop
-
-@section('css')
-{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}
-
-
-    <!-- table css -->
-<link rel="stylesheet" href="{{ asset('css/table.css') }}">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="/css/admin_custom.css"> 
-@stop
-
-@section('js')
-
-    <script> console.log('Hi!'); </script>
-   {{--  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> --}}
-  
-   <script src="https://code.jquery.com/jquery-3.5.1.js"></script> 
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-
-    <script>
-
-
-    $('#myTable').DataTable({
-        responsive: true,
-        autoWitdth: false
-    });
-
-        </script>
-@stop
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+          <div class="toast align-items-center text-white bg-dark border-0 light" id="icon-copied-toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body p-3"></div><button class="btn-close btn-close-white me-2 m-auto" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+        <footer class="footer position-absolute">
+          <div class="row g-0 justify-content-between align-items-center h-100">
+            <div class="col-12 col-sm-auto text-center">
+              <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2023 &copy;<a class="mx-1" href="https://themewagon.com">Themewagon</a></p>
+            </div>
+            <div class="col-12 col-sm-auto text-center">
+              <p class="mb-0 text-600">v1.13.0</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+</x-guest-layout>

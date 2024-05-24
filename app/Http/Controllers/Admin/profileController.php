@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 
-class profileController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.

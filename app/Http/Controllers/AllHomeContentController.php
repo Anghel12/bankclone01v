@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Content;
+use App\Models\Home\Content;
 use App\Models\Home\About;
 use App\Models\Home\Membership;
 use App\Models\Home\Package;

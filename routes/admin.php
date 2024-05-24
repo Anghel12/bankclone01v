@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BanController;
-use App\Http\Controllers\admin\BlockedFollowController;
+use App\Http\Controllers\Admin\BlockedFollowController;
 use App\Http\Controllers\Admin\BlogMetaController;
 use App\Http\Controllers\Admin\BlogsController;
 use App\Http\Controllers\Admin\BrandController;
@@ -24,14 +24,14 @@ use App\Http\Controllers\Admin\ImpersonateController;
 use App\Http\Controllers\Admin\MensajesController;
 use App\Http\Controllers\admin\NavbarConfigController;
 use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\PaymentMethodsController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\PostYoutubeController;
-use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
@@ -61,6 +61,10 @@ use Chatify\ChatifyMessenger;
 use App\Http\Controllers\HomeHelpController;
 use App\Http\Controllers\Admin\AboutUsHomeController;
 use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\Dashboard\CRMController;
+use App\Http\Controllers\Admin\Dashboard\ECommerceController;
+use App\Http\Controllers\Admin\Dashboard\ProjectManagerController;
+use App\Http\Controllers\Admin\Dashboard\SocialFeedController;
 use App\Http\Controllers\Admin\Home\AboutController;
 use App\Http\Controllers\Admin\Home\MembershipController;
 use App\Http\Controllers\Admin\Home\PackageController;
@@ -74,7 +78,14 @@ Route::resource('about', AboutController::class)->names('admin.home.abouts');
 Route::resource('memberships', MembershipController::class)->names('admin.home.memberships');
 
 Route::resource('subscription', MembershipController::class)->names('admin.home.subscription');
-/* home cnfig */
+
+/* Dashboard */
+Route::resource('ecommerce', ECommerceController::class)->names('admin.dashboard.e_commerces');
+Route::resource('project_manager', ProjectManagerController::class)->names('admin.dashboard.project_manager');
+Route::resource('crm', CRMController::class)->names('admin.dashboard.crm');
+Route::resource('social_feed', SocialFeedController::class)->names('admin.dashboard.social_feed');
+
+
 
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['can:admin.home'
@@ -144,8 +155,8 @@ Route::resource('dashboards', DashboardController::class)->names('admin.dashboar
 /* perfil del usuario */
 Route::resource('profile', ProfileController::class)->names('admin.profile');
  
-Route::get('/admin/profile/{user}', [ProfileController::class, 'show'])->name('admin.profile.show');
-
+/* Route::get('/admin/profile/{user}', [ProfileController::class, 'show'])->name('admin.profile.show');
+ */
 /* comprar monedas ct */
 Route::get('buyCoins', [CoinController::class, 'showBuyCoinsForm'])->name('admin.buyCoins.index');
 Route::post('processPayment', [CoinController::class, 'processPayment'])->name('processPayment');

@@ -323,7 +323,7 @@ return [
                 [
                     'text'        => 'Analitycs web',
                     'url'         => '#',
-                    'route'         => 'admin.sales.index',
+                    'route'         => 'admin.dashboard.e_commerce.index',
                     'icon'        => 'fas fa-chart-line',
                     'icon_color' => 'pink',
                     'can'        => 'admin.error405.index',
